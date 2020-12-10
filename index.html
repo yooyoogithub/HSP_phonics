@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Style the header */
+      header {
+        background-color: #26875a;
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+      }
+
+      /* Create two columns/boxes that floats next to each other */
+      nav {
+        float: left;
+        width: 15%;
+        height: 600px; /* only for demonstration, should be removed */
+        background: #26875a;
+        padding: 20px;
+      }
+
+      /* Style the list inside the menu */
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      article {
+        float: center;
+        padding: 20px;
+        width: 85%;
+        background-color: #f1f1f1;
+        height: 600px; /* only for demonstration, should be removed */
+        align-items: center; /*상하정렬*/
+        text-align: center; /*좌우정렬*/
+
+      }
+
+      .container{
+        display: flex;
+        background: beige;
+        flex-direction : column;
+      }
+
+
+      /* Clear floats after the columns */
+      section:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Style the footer */
+      footer {
+        background-color: #777;
+        padding: 10px;
+        text-align: center;
+        color: white;
+      }
+
+      /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+      @media (max-width: 600px) {
+        nav, article {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
+
+    <script>
+      function PlayWord(){
+        var myaudio = new Audio();
+        myaudio.src = "Alphabet Phonics/01.mp3";
+        myaudio.play();
+      }
+    </script>
+
+  </head>
+  <body>
+    <header>
+      <img src="HSP.png" width="8%">
+      <span style="background-color:;
+      color:white;
+      text-align:center;
+      font-weight:bold;
+      font-size:100%">
+      한솔플러스영어 PHONICS Play~~^^
+    </header>
+    <section>
+      <nav>
+        <div style="color:white">
+          책을 선택하세요 => <select name="book">
+            <option value="AP">Alphabet Phonics</option>
+            <option value="EP">Easy Phonics</option>
+            <option value="EPP">Easy Phonics Plus</option>
+            <option value="PF1">Phonics Fun 1</option>
+            <option value="PF2">Phonics Fun 2</option>
+            <option value="PF3">Phonics Fun 3</option>
+            <option value="PT1">Phonics Town 1</option>
+            <option value="PT2">Phonics Town 2</option>
+            <option value="PT3">Phonics Town 3</option>
+          </select>
+        </div>
+        <br>
+        <div style="color:blue">
+        유닛을 선택하세요.
+        </div>
+        <div>
+          Unit 1: <input type="checkbox" name="unit" value="1">
+          Unit 2: <input type="checkbox" name="unit" value="2">
+        </div>
+        <div>
+          Unit 3: <input type="checkbox" name="unit" value="3">
+          Unit 4: <input type="checkbox" name="unit" value="4">
+        </div>
+        <div>
+          Unit 5: <input type="checkbox" name="unit" value="5">
+          Unit 6: <input type="checkbox" name="unit" value="6">
+        </div>
+        <div>
+          Unit 7: <input type="checkbox" name="unit" value="7">
+          Unit 8: <input type="checkbox" name="unit" value="8">
+        </div>
+        <div>
+          Unit 9: <input type="checkbox" name="unit" value="9">
+          Unit 10: <input type="checkbox" name="unit" value="10">
+        </div>
+        <div>
+          Unit 11: <input type="checkbox" name="unit" value="11">
+          Unit 12: <input type="checkbox" name="unit" value="12">
+        <div>
+          Unit 13: <input type="checkbox" name="unit" value="13">
+          Unit 14: <input type="checkbox" name="unit" value="14">
+        </div>
+        <div>
+          Unit 15: <input type="checkbox" name="unit" value="15">
+        </div>
+        <div>
+          <br>교재 전체: <input type="checkbox" name="unit" value="16">
+        <br>
+        <br>
+        <input type="submit" value="선택완료" name="choose">
+        <br>
+        <br>
+          단어 만 보기(그림 안보이기) : <input type="checkbox" name="unit" value="16">
+      </nav>
+      <article>
+        <div class="container">
+          <div class="title">
+            <h1>Say What it is!!</h1>
+          </div>
+          <div class="image">
+            <img src = "Alphabet Phonics\01.jpg" width="400px" height="400px">
+          </div>
+          <div class="word">
+            <h1>Apple</h1>
+          </div>
+          <div class="button">
+            <input type="button" value="발음듣기" onclick="PlayWord()">
+            <input type="button" value="단어보기">
+            <input type="button" value="다음">
+          </div>
+        </div>
+      </article>
+    </section>
+    <footer>
+      <p>Made by Charlie</p>
+  </body>
+</html>

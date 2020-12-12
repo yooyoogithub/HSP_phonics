@@ -170,9 +170,11 @@
         if(units[units.length-1].checked){
           //모든 유닛이 선택되었으면 해당 교재의 모든 정보를 selecteditem에 입력
           // Alphabet Phonics 일때
-          if(bookselected=='Alpahbet Phonics'){
+          listlength = 1;
+          if(bookselected == 'Alphabet Phonics'){
             for(let i=0;i<52;i++){
-              selecteditem[i] = ap[i];
+              selecteditem.push(ap[i]);
+              listlength++;
             }
           }
           // 기타 교재일때

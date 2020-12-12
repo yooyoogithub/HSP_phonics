@@ -387,16 +387,25 @@
           let bookselected = document.getElementById('book').value;
           let chosenword = document.getElementById("wordshow");
 
+          let units = document.getElementById('np');
+
           chosenword.innerText='Tell me What it is!!!';
 
           if(count > listlength-1){
             count = 1;
           }
-          imgtag.src = bookselected + '/' + selecteditem[count][1];
 
-          count++;
           // imgtag.src="Alphabet Phonics/02.jpg";
 
+          if(units.checked){
+            document.all("image").innerHTML = "<p style='font-size:126px;text-align:center'>"+selecteditem[count][3]+"</p>";
+          }
+          else{
+            document.all("image").innerHTML = '<img id="images" width="400px" height="400px">';
+            let imgtag = document.getElementById("images");
+            imgtag.src = bookselected + '/' + selecteditem[count][1];
+          }
+          count++;
       }
 
       // 단어 보여주기
@@ -470,14 +479,14 @@
         <input type="button" value="선택완료" name="choose" onclick="Getunits()">
         <br>
         <br>
-          단어 만 보기(그림 안보이기) : <input type="checkbox" name="nopicture">
+          단어 만 보기(그림 안보이기) : <input type="checkbox" name="nopicture" id="np">
       </nav>
       <article>
         <div class="container">
           <div class="title">
             <h1>Say What it is!!</h1>
           </div>
-          <div class="image">
+          <div id="image">
             <img id="images" src = "Hanna.png" width="400px" height="400px">
           </div>
           <div class="word">

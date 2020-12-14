@@ -686,7 +686,7 @@
                 ['4','005.PNG','005.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">The pink pig is pretty.<br>The bear goes to the hill.<br>The hen goes to the house.</p>'],
                 ['4','006.PNG','006.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">The bear is on the hill.<br>The bear wears a pretty hat.<br>The banana is for the pink pig.</p>'],
                 ['4','007.PNG','007.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">The hen is in the house.<br>The hen wears a big hat.<br>The pie is for the pink pig.</p>'],
-                ['4','008.PNG','008.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">The pink pig wear a pretty hat.<br>The big pie is for the pink pig.<br>The hen is in the bubble.<br>The pink pig is in the bubble.</p>'],
+                ['4','008.PNG','008.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">The pink pig wears a pretty hat.<br>The big pie is for the pink pig.<br>The hen is in the bubble.<br>The pink pig is in the bubble.</p>'],
 
                 ['5','009.PNG','005.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">그 분홍 돼지는 예쁩니다.<br>그 곰은 그 언덕으로 갑니다.<br>그 암탉은 그 집으로 갑니다.</p>'],
                 ['5','010.PNG','006.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">그 곰은 그 언덕 위에 있습니다.<br>그 곰은 예쁜 모자를 씁니다.<br>그 바나나는 그 분홍 돼지를 위한 것입니다.</p>'],
@@ -994,9 +994,11 @@
       // 루틴 돌릴때 카운트 수 listlength를 넘어가면 다시 1로 됨.초기값은 1
       let count=1;
 
+      // 다음 버튼 누르면 Audio stop 하도록
+      let myaudio = new Audio();
       // 발음듣기 함수
       function PlayWord(){
-        let myaudio = new Audio();
+
         let bookselected = document.getElementById('book').value;
 
         count--;
@@ -1007,7 +1009,12 @@
         //let whileplay = document.getElementById('nextbutton');
         //whileplay.disabled = true;
         myaudio.play();
-        //whileplay.diabled = false;
+        //whileplay.disabled = false;
+      }
+
+      function stopAudio(){
+        myaudio.pause();
+        myaudio.currentTime=0;
       }
 
       // 선택된 책과 유닛 알아내는 함수
@@ -1314,6 +1321,9 @@
           let chosenword = document.getElementById("wordshow");
 
           let units = document.getElementById('np');
+
+          //플레이되는 오디오가 있으면 Stop
+          stopAudio();
 
           chosenword.innerText='Tell me What it is!!!';
 

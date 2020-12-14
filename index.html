@@ -960,6 +960,11 @@
         let units = document.getElementsByName('unit');
         let unitchoice;
         let bookselected = document.getElementById('book').value;
+        let choiceismade;
+        let whatchosen;
+
+        choiceismade = false;
+        whatchosen = '선택교재 : '+bookselected+' => 선택된 유닛 : ';
 
         //초기화
         for(let i=1;i<selecteditem.length;i++){
@@ -1078,14 +1083,16 @@
           }
 
           // 기타 교재는 여기에....
-
+          choiceismade = true;
+          whatchosen = whatchosen+'전체 유닛';
         }
         // 유닛이 선별적으로 선택되어졌을 때
         else{
           listlength = 1;
-
+          choiceismade=false;
           for(let i = 0; i < units.length-2; i++){
             if(units[i].checked){
+
               if(bookselected=='Alphabet Phonics'){
                 for(let j=0;j<52;j++){
                   if(ap[j][0]==units[i].value){
@@ -1225,11 +1232,24 @@
               //if(bookselected=''){
               //}
 
+              // 선택된 유닛 알아내서 팝업창 표시
+              whatchosen = whatchosen + "Unit "+units[i].value +', ';
+              choiceismade=true;
             }
             //Check가 안되어 있으면 Skip
           }
+
         }
 
+        if(choiceismade){
+          whatchosen=whatchosen.slice(0,-1);
+          whatchosen=whatchosen.slice(0,-1);
+          whatchosen = whatchosen + "입니다.";
+          alert(whatchosen);
+        }
+        else{
+          alert("choice has not been made yet!!");
+        }
       }
 
       // 다음 단어 보기
@@ -1282,7 +1302,7 @@
       한솔플러스영어 PHONICS Play~~^^
     </header>
     <section>
-      <nav>
+      <nav style="text-align:center">
         <div style="color:black">
           책을 선택하세요 =>
           <select name="book" id="book">
@@ -1304,9 +1324,7 @@
           </select>
         </div>
         <br>
-        <div style="color:blue">
-        유닛을 선택하세요.
-        </div>
+        <div style="color:blue;text-align:center;">유닛선택</div>
         <div>
           Unit 1: <input type="checkbox" name="unit" value="1"><br>
           Unit 2: <input type="checkbox" name="unit" value="2"><br>
@@ -1326,12 +1344,10 @@
         </div>
         <div>
           <br>교재 전체: <input type="checkbox" name="unit" value="16">
-        <br>
-        <br>
-        <input type="button" value="선택완료" name="choose" onclick="Getunits()">
-        <br>
-        <br>
-          단어 만 보기(그림 안보이기) : <input type="checkbox" name="nopicture" id="np">
+        <br><br>
+        <input type="button" style="width:100px;height:40px" value="선택완료" name="choose" onclick="Getunits()">
+        <br><br>
+          NO 이미지:<input type="checkbox" name="nopicture" id="np">
       </nav>
       <article>
         <div class="container">
@@ -1345,9 +1361,9 @@
             <h1 id="wordshow">Tell me What it is!!!</h1>
           </div>
           <div class="button">
-            <input type="button" value="발음듣기" onclick="PlayWord()">
-            <input type="button" value="단어보기" onClick="ShowWord()">
-            <input type="button" value="다음" onClick="NextWord()">
+            <input type="button" style="width:100px;height:50px" value="발음듣기" onclick="PlayWord()">
+            <input type="button" style="width:100px;height:50px" value="단어보기" onClick="ShowWord()">
+            <input type="button" style="width:100px;height:50px" value="다음" onClick="NextWord()">
           </div>
         </div>
       </article>

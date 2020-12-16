@@ -25,7 +25,7 @@
       nav {
         float: left;
         width: 15%;
-        height: 600px; /* only for demonstration, should be removed */
+        height: 600px; 
         background: white;
         padding: 20px;
       }
@@ -41,7 +41,7 @@
         padding: 0px;
         width: 85%;
         background-color: white;
-        height: 600px; /* only for demonstration, should be removed */
+        height: 600px; 
         align-items: center; /*상하정렬*/
         text-align: center; /*좌우정렬*/
       }
@@ -49,7 +49,8 @@
       .container{
         display: flex;
         background: beige;
-        flex-direction : column;
+        flex-direction : column;  
+        position: relative;      
       }
 
       /* Clear floats after the columns */
@@ -74,6 +75,24 @@
           height: auto;
         }
       }
+
+      /*button layout */
+      .realbutton{
+        cursor:pointer;
+        /*border-radius:5px;*/
+        width:100px;
+        height:50px;
+      }
+
+      .realcheckbox{
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+
+      }
+
+
+
     </style>
 
     <script type="text/javascript">
@@ -1430,10 +1449,10 @@
             count = 1;
           }
 
-          // imgtag.src="Alphabet Phonics/02.jpg";
 
+          //No 이미지가 선택되면 글자표시
           if(units.checked){
-            document.all("image").innerHTML = "<p style='font-size:126px;text-align:center'>"+selecteditem[count][3]+"</p>";
+            document.all("image").innerHTML = "<p style='font-size:126px;text-align:center;'>"+selecteditem[count][3]+"</p>";
           }
           else{
             document.all("image").innerHTML = '<img id="images" width="400px" height="400px">';
@@ -1490,28 +1509,28 @@
         <br>
         <div style="color:blue;text-align:center;">유닛선택</div>
         <div>
-          Unit 1: <input type="checkbox" name="unit" value="1"><br>
-          Unit 2: <input type="checkbox" name="unit" value="2"><br>
-          Unit 3: <input type="checkbox" name="unit" value="3"><br>
-          Unit 4: <input type="checkbox" name="unit" value="4"><br>
-          Unit 5: <input type="checkbox" name="unit" value="5"><br>
-          Unit 6: <input type="checkbox" name="unit" value="6"><br>
-          Unit 7: <input type="checkbox" name="unit" value="7"><br>
-          Unit 8: <input type="checkbox" name="unit" value="8"><br>
-          Unit 9: <input type="checkbox" name="unit" value="9"><br>
-          Unit 10: <input type="checkbox" name="unit" value="10"><br>
-          Unit 11: <input type="checkbox" name="unit" value="11"><br>
-          Unit 12: <input type="checkbox" name="unit" value="12"><br>
-          Unit 13: <input type="checkbox" name="unit" value="13"><br>
-          Unit 14: <input type="checkbox" name="unit" value="14"><br>
-          Unit 15: <input type="checkbox" name="unit" value="15"><br>
+          Unit 1: <input type="checkbox" class="realcheckbox" name="unit" value="1"><br>
+          Unit 2: <input type="checkbox" class="realcheckbox" name="unit" value="2"><br>
+          Unit 3: <input type="checkbox" class="realcheckbox" name="unit" value="3"><br>
+          Unit 4: <input type="checkbox" class="realcheckbox" name="unit" value="4"><br>
+          Unit 5: <input type="checkbox" class="realcheckbox" name="unit" value="5"><br>
+          Unit 6: <input type="checkbox" class="realcheckbox" name="unit" value="6"><br>
+          Unit 7: <input type="checkbox" class="realcheckbox" name="unit" value="7"><br>
+          Unit 8: <input type="checkbox" class="realcheckbox" name="unit" value="8"><br>
+          Unit 9: <input type="checkbox" class="realcheckbox" name="unit" value="9"><br>
+          Unit 10: <input type="checkbox" class="realcheckbox" name="unit" value="10"><br>
+          Unit 11: <input type="checkbox" class="realcheckbox" name="unit" value="11"><br>
+          Unit 12: <input type="checkbox" class="realcheckbox" name="unit" value="12"><br>
+          Unit 13: <input type="checkbox" class="realcheckbox" name="unit" value="13"><br>
+          Unit 14: <input type="checkbox" class="realcheckbox" name="unit" value="14"><br>
+          Unit 15: <input type="checkbox" class="realcheckbox" name="unit" value="15"><br>
         </div>
         <div>
-          <br>교재 전체: <input type="checkbox" name="unit" value="16">
+          <br>교재 전체: <input type="checkbox" class="realcheckbox" name="unit" value="16">
         <br><br>
-        <input type="button" style="width:100px;height:40px" value="선택완료" name="choose" onclick="Getunits()">
+        <input type="button" class="realbutton" style="width:100px;height:40px" value="선택완료" name="choose" onclick="Getunits()">
         <br><br>
-          NO 이미지:<input type="checkbox" name="nopicture" id="np">
+          NO 이미지:<input type="checkbox" class="realcheckbox" name="nopicture" id="np">
       </nav>
       <article>
         <div class="container">
@@ -1525,9 +1544,9 @@
             <h1 id="wordshow">Tell me What it is!!!</h1>
           </div>
           <div class="button">
-            <input type="button" style="width:100px;height:50px" value="발음듣기" onclick="PlayWord()">
-            <input type="button" style="width:100px;height:50px" value="단어보기" onClick="ShowWord()">
-            <input type="button" id="nextbutton" style="width:100px;height:50px" value="다음" onClick="NextWord()">
+            <input class="realbutton" type="button" value="발음듣기" onclick="PlayWord()">
+            <input class="realbutton" type="button" value="단어보기" onClick="ShowWord()">
+            <input class="realbutton" type="button" id="nextbutton" value="다음" onClick="NextWord()">            
           </div>
         </div>
       </article>

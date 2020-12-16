@@ -37,13 +37,22 @@
       }
 
       article {
-        float: center;
         padding: 0px;
-        width: 85%;
+        width: 80%;
         background-color: white;
         height: 600px; 
         align-items: center; /*상하정렬*/
         text-align: center; /*좌우정렬*/
+      }
+
+      aside{
+        padding: 20px;
+        width: 15%;
+        height: 600px;
+        align-items: center;
+        text-align: center;
+        background-color:white;
+        float:right;
       }
 
       .container{
@@ -70,7 +79,7 @@
 
       /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
       @media (max-width: 600px) {
-        nav, article {
+        nav, article, aside {
           width: 100%;
           height: auto;
         }
@@ -88,11 +97,7 @@
         cursor: pointer;
         height: 15px;
         width: 15px;
-
       }
-
-
-
     </style>
 
     <script type="text/javascript">
@@ -1112,6 +1117,8 @@
       // 루틴 돌릴때 카운트 수 listlength를 넘어가면 다시 1로 됨.초기값은 1
       let count=1;
 
+      let repeatcount = 0;
+
       // 다음 버튼 누르면 Audio stop 하도록
       let myaudio = new Audio();
       // 발음듣기 함수
@@ -1135,16 +1142,21 @@
         myaudio.currentTime=0;
       }
 
+      //선택된 책과 유닛들의 문자열
+      let whatchosen;
+
       // 선택된 책과 유닛 알아내는 함수
       function Getunits(){
         let units = document.getElementsByName('unit');
         let unitchoice;
         let bookselected = document.getElementById('book').value;
         let choiceismade;
-        let whatchosen;
-
+        
         choiceismade = false;
         whatchosen = '선택교재 : '+bookselected+' => 선택된 유닛 : ';
+
+        //교재가 다시 시작되므로 반복횟수는 0으로 재설정
+        repeatcount = 0;
 
         //초기화
         for(let i=1;i<selecteditem.length;i++){
@@ -1447,6 +1459,23 @@
 
           if(count > listlength-1){
             count = 1;
+            let repeatshow  = document.getElementById("repeat");
+            let repeatnumber  = document.getElementById("repeatnumber");
+            let tellrepeat;
+
+            repeatcount++;
+
+            tellrepeat = whatchosen;
+
+            tellrepeat = tellrepeat.slice(0,-1);
+            tellrepeat = tellrepeat.slice(0,-1);
+            tellrepeat = tellrepeat.slice(0,-1);
+            tellrepeat = tellrepeat.slice(0,-1);
+            
+            tellrepeat = tellrepeat + "의 반복횟수";
+            
+            repeatshow.innerHTML = tellrepeat;
+            repeatnumber.innerHTML = "<span style='font-size:60px;'>" + repeatcount + "</span>"
           }
 
 
@@ -1472,6 +1501,12 @@
         count++;
       }
 
+      // 학습 결과 전송
+      function SendResult(){
+        let repeatshow  = document.getElementById("repeat");
+
+        repeatshow.innerHTML=whatchosen;
+      }
     </script>
   </head>
   <body>
@@ -1484,7 +1519,7 @@
       font-size:100%">
       한솔플러스영어 PHONICS Play~~^^
     </header>
-    <section>
+    <section>      
       <nav style="text-align:center">
         <div style="color:black">
           <div style="color:blue">교재선택</div>
@@ -1533,6 +1568,35 @@
           NO 이미지:<input type="checkbox" class="realcheckbox" name="nopicture" id="np">
       </nav>
       <article>
+
+        <aside>
+          <div>
+            Statistics
+          </div>
+          <br>
+          <br>
+          <div>
+            접속시간(Not Yet)
+          </div>
+          <br>
+          <br>
+          <div>
+            학습시간(Not Yet)
+          </div>
+          <br>
+          <br>
+          <div id="repeat">
+            교재-유닛-반복횟수
+          </div>
+          <div id="repeatnumber">            
+          </div>
+          <br>
+          <br>
+          <div>
+            <!--<input type="button" style="width: 100px;height: 40px;" value="학습시간보기" name="sendresult" onclick="SendResult()">-->
+          </div>
+        </aside>
+
         <div class="container">
           <div class="title">
             <h1>Say What it is!!</h1>
@@ -1549,6 +1613,7 @@
             <input class="realbutton" type="button" id="nextbutton" value="다음" onClick="NextWord()">            
           </div>
         </div>
+
       </article>
     </section>
     <footer>

@@ -47,8 +47,8 @@
 
       aside{
         padding: 20px;
-        width: 15%;
-        height: 600px;
+        width: 17%;
+        height: 600px;ssss
         align-items: center;
         text-align: center;
         background-color:white;
@@ -101,6 +101,11 @@
     </style>
 
     <script type="text/javascript">
+
+      // 전체 학습시간을 저장하는 변수
+      let StudyStartTime;
+      let StudyEndTime;
+
       //Alphabet Phonics [unit, image, sound, word]
       let ap = [['1','01.jpg','01.mp3','<font color="red">a<font color="black">pple'],
                 ['1','02.jpg','02.mp3','<font color="red">a<font color="black">nt'],
@@ -1118,6 +1123,9 @@
       let count=1;
 
       let repeatcount = 0;
+      
+      //학습시간을 카운트 하기 위해 처음 접속인지만 확인하는 boolean
+      let totalfirst = true;
 
       // 다음 버튼 누르면 Audio stop 하도록
       let myaudio = new Audio();
@@ -1159,19 +1167,26 @@
         repeatcount = 0;
         let repeatshow  = document.getElementById("repeat");
         let repeatnumber  = document.getElementById("repeatnumber");
-        let tellrepeat;
-
-        tellrepeat = whatchosen;
-
+        let tellrepeat="";
+        
+        tellrepeat = tellrepeat + bookselected + "<br>";
+        for(let i=0;i<units.length;i++){
+          if(units[i].checked)
+          tellrepeat+="Unit"+units[i].value+',';
+        }
+      
         tellrepeat = tellrepeat.slice(0,-1);
-        tellrepeat = tellrepeat.slice(0,-1);
-        tellrepeat = tellrepeat.slice(0,-1);
-        tellrepeat = tellrepeat.slice(0,-1);
-            
-        tellrepeat = tellrepeat + "의 반복횟수";
             
         repeatshow.innerHTML = tellrepeat;
         repeatnumber.innerHTML = "<span style='font-size:60px;'>" + repeatcount + "</span>"
+
+        //최초 학습시간 기록용
+        if(totalfirst){
+          totalfirst = false;
+          let startTime = new Date();
+          document.getElementById('totalstudytime').innerHTML = "[학습시작]<br>"+startTime.getHours()+"시"+startTime.getMinutes()+"분"+startTime.getSeconds()+"초";
+          StudyStartTime = startTime.getHours()*60*60+startTime.getMinutes()*60+startTime.getSeconds();
+        }
 
         //초기화
         for(let i=1;i<selecteditem.length;i++){
@@ -1473,22 +1488,23 @@
           chosenword.innerText='Tell me What it is!!!';
 
           if(count > listlength-1){
+            let units = document.getElementsByName('unit');
+
             count = 1;
             let repeatshow  = document.getElementById("repeat");
             let repeatnumber  = document.getElementById("repeatnumber");
-            let tellrepeat;
-
+            let tellrepeat="";
+            
+            tellrepeat = tellrepeat + bookselected + "<br>";
+            for(let i=0;i<units.length;i++){
+              if(units[i].checked)
+              tellrepeat+="Unit"+units[i].value+',';
+            }
+            
             repeatcount++;
 
-            tellrepeat = whatchosen;
-
             tellrepeat = tellrepeat.slice(0,-1);
-            tellrepeat = tellrepeat.slice(0,-1);
-            tellrepeat = tellrepeat.slice(0,-1);
-            tellrepeat = tellrepeat.slice(0,-1);
-            
-            tellrepeat = tellrepeat + "의 반복횟수";
-            
+                
             repeatshow.innerHTML = tellrepeat;
             repeatnumber.innerHTML = "<span style='font-size:60px;'>" + repeatcount + "</span>"
           }
@@ -1518,13 +1534,82 @@
 
       // 학습 결과 전송
       function SendResult(){
-        let repeatshow  = document.getElementById("repeat");
+        let endstudytime = document.getElementById("endstudytime");
+        let endTime = new Date();
+        let StudyRealTime;
+        let temphour=0;
+        let tempmin=0;
+        let tempsec=0;
+        let tempstring="";
 
-        repeatshow.innerHTML=whatchosen;
+        endstudytime.innerHTML="[학습종료]<br>"+endTime.getHours()+"시"+endTime.getMinutes()+"분"+endTime.getSeconds()+"초";
+
+        StudyEndTime = endTime.getHours()*60*60+endTime.getMinutes()*60+endTime.getSeconds();
+        
+        StudyRealTime = StudyEndTime - StudyStartTime;
+
+        let i;
+        tempsec = StudyRealTime;
+        for(i=0;tempsec>60;i++){
+          tempsec = tempsec - 60;
+        }
+
+        tempmin = i;
+        for(i = 0;tempmin>60;i++){
+          tempmin = tempmin - 60;
+        }
+        temphour = i;
+        
+        if(temphour != 0){
+          tempstring = tempstring + temphour+"시간";
+        }
+        if(tempmin != 0){
+          tempstring = tempstring + tempmin+"분";
+        }
+        tempstring = tempstring + tempsec+"초";
+        document.getElementById("realstudytime").innerHTML = "[학습시간]<br>"+tempstring;
       }
+    
+      // 처음 접속이라는 걸 인지
+      let isitfirst = true;
+
+      // 접속시간표시
+      function getCurrentTime(){
+        let currentDate = new Date();
+        let pos = document.getElementById("connectTime");
+        let msg = "";
+        
+        if(currentDate.getHours() > 12){
+          msg = msg +(currentDate.getHours()-12)+"시";
+        }
+        else{
+          msg = msg + currentDate.getHours() + "시";
+        }
+        
+        msg = msg + currentDate.getMinutes()+"분";
+        msg = msg + currentDate.getSeconds()+"초";
+
+        if(currentDate.getHours() > 12){
+          msg = msg + "PM";
+        }
+        else{
+          msg = msg + "AM";
+        }
+        
+        pos.innerHTML = msg;
+
+        //처음 접속시 최초접속시간도 표시
+        if(isitfirst){
+          document.getElementById("firstcon").innerHTML=msg;
+          isitfirst = false;
+        }
+
+        setTimeout(getCurrentTime,1000);
+      }
+    
     </script>
   </head>
-  <body>
+  <body onload="getCurrentTime()">
     <header>
       <img src="HSP.png" width="8%">
       <span style="background-color:;
@@ -1585,30 +1670,32 @@
       <article>
 
         <aside>
-          <div>
+          <div style="color: blue;">
             Statistics
           </div>
-          <br>
-          <br>
+          
           <div>
-            접속시간(Not Yet)
-          </div>
+            <div style="background-color: burlywood;">최초접속시간</div>
+            <div id="firstcon"></div>
+            <hr>
+            <div style="background-color: burlywood;">현재시간</div>
+            <div id="connectTime" class="connectedTime"></div>
+          </div>            
+          <hr>
+          <div style="background-color: burlywood;">학습시간</div>
+          <div id="totalstudytime"></div>
+          <div id="endstudytime"></div>
+          <div id="realstudytime"></div>
+          <hr>
           <br>
-          <br>
+          <div style="background-color: burlywood;">반복횟수</div>
+          <div id="repeat"></div>
+          <hr>
+          <div id="repeatnumber"></div>
+          <hr>
+          <br>          
           <div>
-            학습시간(Not Yet)
-          </div>
-          <br>
-          <br>
-          <div id="repeat">
-            교재-유닛-반복횟수
-          </div>
-          <div id="repeatnumber">            
-          </div>
-          <br>
-          <br>
-          <div>
-            <!--<input type="button" style="width: 100px;height: 40px;" value="학습시간보기" name="sendresult" onclick="SendResult()">-->
+            <input type="button" style="width: 100px;height: 40px;" value="학습시간보기" name="sendresult" onclick="SendResult()">
           </div>
         </aside>
 

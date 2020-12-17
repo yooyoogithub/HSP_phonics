@@ -1236,7 +1236,7 @@
         let tellrepeat="";
 
         tellrepeat = tellrepeat + bookselected + "<br>";
-        for(let i=0;i<units.length;i++){
+        for(let i=0;i<units.length-1;i++){
           if(units[i].checked)
           tellrepeat+="Unit"+units[i].value+',';
         }
@@ -1382,7 +1382,7 @@
         else{
           listlength = 1;
           choiceismade=false;
-          for(let i = 0; i < units.length-2; i++){
+          for(let i = 0; i < units.length-1; i++){
             if(units[i].checked){
 
               if(bookselected=='Alphabet Phonics'){

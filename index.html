@@ -1328,56 +1328,147 @@
                 ];
 
       // Theme English 5 [unit, image, sound, word, sentence:s or word:w, only word]
-      let te5 = [['1','11.jpg','1.mp3','carrot'],
-                ['1','12.jpg','2.mp3','potato'],
-                ['1','13.jpg','3.mp3','cucumber'],
-                ['1','14.jpg','4.mp3','onion'],
-                ['1','15.jpg','5.mp3','cabbage'],
-                ['1','16.jpg','6.mp3','tomato'],
-                ['2','21.jpg','7.mp3','orange'],
-                ['2','22.jpg','8.mp3','pear'],
-                ['2','23.jpg','9.mp3','banana'],
-                ['2','24.jpg','10.mp3','strawberry'],
-                ['2','25.jpg','11.mp3','lemon'],
-                ['2','26.jpg','12.mp3','apple'],
-                ['3','31.jpg','13.mp3','chocolate'],
-                ['3','32.jpg','14.mp3','cake'],
-                ['3','33.jpg','15.mp3','cheese'],
-                ['3','34.jpg','16.mp3','bread'],
-                ['3','35.jpg','17.mp3','candy'],
-                ['3','36.jpg','18.mp3','pizza'],
-                ['4','41.jpg','19.mp3','juice'],
-                ['4','42.jpg','20.mp3','water'],
-                ['4','43.jpg','21.mp3','milk'],
-                ['4','44.jpg','22.mp3','Coke'],
-                ['4','45.jpg','23.mp3','icecream']
+      let te5 = [
+                ['1','011.PNG','011.mp3','carrot','s','carrot'],
+                ['1','012.PNG','012.mp3','potato','s','potato'],
+                ['1','013.PNG','013.mp3','cucumber','s','cucumber'],
+                ['1','014.PNG','014.mp3','onion','s','onion'],
+                ['1','015.PNG','015.mp3','cabbage','s','cabbage'],
+                ['1','016.PNG','016.mp3','tomato','s','tomato'],
+
+                ['2','021.PNG','021.mp3','carrot','s','carrot'],
+                ['2','022.PNG','022.mp3','potato','s','potato'],
+                ['2','023.PNG','023.mp3','cucumber','s','cucumber'],
+                ['2','024.PNG','024.mp3','onion','s','onion'],
+                ['2','025.PNG','025.mp3','cabbage','s','cabbage'],
+                ['2','026.PNG','026.mp3','tomato','s','tomato'],
+
+                ['3','031.PNG','031.mp3','Chant','s','Chant'],
+
+                ['4','041.PNG','041.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is this?<br>This is an onion.<br><br><br><br></p>','s','What is this?<br>This is an onion.'],
+                ['4','042.PNG','042.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is this?<br>This is a cucumber.<br><br><br><br></p>','s','What is this?<br>This is a cucumber.'],
+                ['4','043.PNG','043.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is this?<br>This is a tomato.<br><br><br><br></p>','s','What is this?<br>This is a tomato.'],
+                ['4','044.PNG','044.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is this?<br>This is a cabbage.<br><br><br><br></p>','s','What is this?<br>This is a cabbage.'],
+                ['4','045.PNG','045.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is this?<br>This is a strawberrry.<br><br><br><br></p>','s','What is this?<br>This is a strawberrry.'],
+                ['4','046.PNG','046.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is this?<br>This is carrot.<br><br><br><br></p>','s','What is this?<br>This is carrot.'],
+
+                ['5','051.PNG','051.mp3','orange','w','orange'],
+                ['5','052.PNG','052.mp3','pear','w','pear'],
+                ['5','053.PNG','053.mp3','banana','w','banana'],
+                ['5','054.PNG','054.mp3','strawberry','w','strawberry'],
+                ['5','055.PNG','055.mp3','lemon','w','lemon'],
+                ['5','056.PNG','056.mp3','apple','w','apple'],
+
+                ['6','061.PNG','061.mp3','Chant','s','Chant'],
+
+                ['7','071.PNG','071.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is that?<br>That is an orange.<br><br><br><br></p>','s','What is that?<br>That is an orange.'],
+                ['7','072.PNG','072.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is that?<br>That is a strawberry.<br><br><br><br></p>','s','What is that?<br>That is a strawberry.'],
+                ['7','073.PNG','073.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is that?<br>That is a pear.<br><br><br><br></p>','s','What is that?<br>That is a pear.'],
+                ['7','074.PNG','074.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is that?<br>That is a banana.<br><br><br><br></p>','s','What is that?<br>That is a banana.'],
+                ['7','075.PNG','075.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is that?<br>That is an apple.<br><br><br><br></p>','s','What is that?<br>That is an apple.'],
+                ['7','076.PNG','076.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What is that?<br>That is a lemon.<br><br><br><br></p>','s','What is that?<br>That is a lemon.'],
+
+                ['8','081.PNG','081.mp3','chocolate','s','chocolate'],
+                ['8','082.PNG','082.mp3','cake','s','cake'],
+                ['8','083.PNG','083.mp3','cheese','s','cheese'],
+                ['8','084.PNG','084.mp3','bread','s','bread'],
+                ['8','085.PNG','085.mp3','candy','s','candy'],
+                ['8','086.PNG','086.mp3','pizza','s','pizza'],
+
+                ['9','091.PNG','091.mp3','chocolate','w','chocolate'],
+                ['9','092.PNG','092.mp3','cake','w','cake'],
+                ['9','093.PNG','093.mp3','cheese','w','cheese'],
+                ['9','094.PNG','094.mp3','bread','w','bread'],
+                ['9','095.PNG','095.mp3','candy','w','candy'],
+                ['9','096.PNG','096.mp3','pizza','w','pizza'],
+
+                ['10','101.PNG','101.mp3','Chant','s','Chant'],
+
+                ['11','111.PNG','111.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What do you like?<br>I like chocolate.<br><br><br><br></p>','s','What do you like?<br>I like chocolate.'],
+                ['11','112.PNG','112.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What do you like?<br>I like cake.<br><br><br><br></p>','s','What do you like?<br>I like cake.'],
+                ['11','113.PNG','113.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What do you like?<br>I like cheese.<br><br><br><br></p>','s','What do you like?<br>I like cheese.'],
+                ['11','114.PNG','114.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What do you like?<br>I like candy.<br><br><br><br></p>','s','What do you like?<br>I like candy.'],
+                ['11','115.PNG','115.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What do you like?<br>I like pizza.<br><br><br><br></p>','s','What do you like?<br>I like pizza.'],
+                ['11','116.PNG','116.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">What do you like?<br>I like bread.<br><br><br><br></p>','s','What do you like?<br>I like bread.'],
+
+                ['12','121.PNG','121.mp3','juice','w','juice'],
+                ['12','122.PNG','122.mp3','water','w','water'],
+                ['12','123.PNG','123.mp3','milk','w','milk'],
+                ['12','124.PNG','124.mp3','Coke','w','Coke'],
+                ['12','125.PNG','125.mp3','icecream','w','icecream'],
+
+                ['13','131.PNG','131.mp3','Chant','s','Chant'],
+
+                ['14','141.PNG','141.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Do you like juice?<br>I don\'t like juice.<br><br><br><br></p>','s','Do you like juice?<br>I don\'t like juice.'],
+                ['14','142.PNG','142.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Do you like milk?<br>I like milk.<br><br><br><br></p>','s','Do you like milk?<br>I like milk.'],
+                ['14','143.PNG','143.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Do you like water?<br>I don\'t like water.<br><br><br><br></p>','s','Do you like water?<br>I don\'t like water.'],
+                ['14','144.PNG','144.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Do you like Coke?<br>I like Coke.<br><br><br><br></p>','s','Do you like Coke?<br>I like Coke.'],
+                ['14','145.PNG','145.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Do you like icecream?<br>I like icecream.<br><br><br><br></p>','s','Do you like icecream?<br>I like icecream.'],
+
+                ['15','151.PNG','151.mp3','Review','s','Review']
                 ];
 
       // Theme English 6 [unit, image, sound, word, sentence:s or word:w, only word]
-      let te6 = [['1','11.jpg','01.mp3','dog'],
-                ['1','12.jpg','02.mp3','cat'],
-                ['1','13.jpg','03.mp3','bird'],
-                ['1','14.jpg','04.mp3','fish'],
-                ['1','15.jpg','05.mp3','rabbit'],
-                ['1','16.jpg','06.mp3','hamster'],
-                ['2','21.jpg','07.mp3','frog'],
-                ['2','22.jpg','08.mp3','snake'],
-                ['2','23.jpg','09.mp3','snail'],
-                ['2','24.jpg','10.mp3','mouse'],
-                ['2','25.jpg','11.mp3','squirrel'],
-                ['2','26.jpg','12.mp3','turtle'],
-                ['3','31.jpg','13.mp3','lion'],
-                ['3','32.jpg','14.mp3','elephant'],
-                ['3','33.jpg','15.mp3','monkey'],
-                ['3','34.jpg','16.mp3','tiger'],
-                ['3','35.jpg','17.mp3','bear'],
-                ['3','36.jpg','18.mp3','giraffe'],
-                ['4','41.jpg','19.mp3','cow'],
-                ['4','42.jpg','20.mp3','pig'],
-                ['4','43.jpg','21.mp3','horse'],
-                ['4','44.jpg','22.mp3','goat'],
-                ['4','45.jpg','23.mp3','duck'],
-                ['4','46.jpg','24.mp3','lamb']
+      let te6 = [
+                ['1','011.PNG','011.mp3','dog','s','dog'],
+                ['1','012.PNG','012.mp3','cat','s','cat'],
+                ['1','013.PNG','013.mp3','bird','s','bird'],
+                ['1','014.PNG','014.mp3','fish','s','fish'],
+                ['1','015.PNG','015.mp3','rabbit','s','rabbit'],
+                ['1','016.PNG','016.mp3','hamster','s','hamster'],
+
+                ['2','021.PNG','021.mp3','dog','w','dog'],
+                ['2','022.PNG','022.mp3','cat','w','cat'],
+                ['2','023.PNG','023.mp3','bird','w','bird'],
+                ['2','024.PNG','024.mp3','fish','w','fish'],
+                ['2','025.PNG','025.mp3','rabbit','w','rabbit'],
+                ['2','026.PNG','026.mp3','hamster','w','hamster'],
+
+                ['3','031.PNG','031.mp3','Chant','s','Chant'],
+
+                ['4','041.PNG','041.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Where is your grandfather?<br>My grandfather is in the bedroom.<br><br><br><br></p>','s','Where is your grandfather?<br>My grandfather is in the bedroom.'],
+
+                ['5','051.PNG','051.mp3','frog','w','frog'],
+                ['5','052.PNG','052.mp3','snake','w','snake'],
+                ['5','053.PNG','053.mp3','snail','w','snail'],
+                ['5','054.PNG','054.mp3','mouse','w','mouse'],
+                ['5','055.PNG','055.mp3','squirrel','w','squirrel'],
+                ['5','056.PNG','056.mp3','turtle','w','turtle'],
+
+                ['6','061.PNG','061.mp3','Chant','s','Chant'],
+
+                ['7','071.PNG','071.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Where is your grandfather?<br>My grandfather is in the bedroom.<br><br><br><br></p>','s','Where is your grandfather?<br>My grandfather is in the bedroom.'],
+
+                ['8','081.PNG','081.mp3','lion','s','lion'],
+                ['8','082.PNG','082.mp3','elephant','s','elephant'],
+                ['8','083.PNG','083.mp3','monkey','s','monkey'],
+                ['8','084.PNG','084.mp3','tiger','s','tiger'],
+                ['8','085.PNG','085.mp3','bear','s','bear'],
+                ['8','086.PNG','086.mp3','giraffe','s','giraffe'],
+
+                ['9','091.PNG','091.mp3','lion','w','lion'],
+                ['9','092.PNG','092.mp3','elephant','w','elephant'],
+                ['9','093.PNG','093.mp3','monkey','w','monkey'],
+                ['9','094.PNG','094.mp3','tiger','w','tiger'],
+                ['9','095.PNG','095.mp3','bear','w','bear'],
+                ['9','096.PNG','096.mp3','giraffe','w','giraffe'],
+
+                ['10','101.PNG','101.mp3','Chant','s','Chant'],
+
+                ['11','111.PNG','111.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Where is your grandfather?<br>My grandfather is in the bedroom.<br><br><br><br></p>','s','Where is your grandfather?<br>My grandfather is in the bedroom.'],
+
+                ['12','121.PNG','121.mp3','cow','w','cow'],
+                ['12','122.PNG','122.mp3','pig','w','pig'],
+                ['12','123.PNG','123.mp3','horse','w','horse'],
+                ['12','124.PNG','124.mp3','goat','w','goat'],
+                ['12','125.PNG','125.mp3','duck','w','duck'],
+                ['12','126.PNG','126.mp3','lamb','w','lamb'],
+
+                ['13','131.PNG','131.mp3','Chant','s','Chant'],
+
+                ['14','141.PNG','141.mp3','<p style="font-size:30px;text-align:center;line-height:1.5;">Where is your grandfather?<br>My grandfather is in the bedroom.<br><br><br><br></p>','s','Where is your grandfather?<br>My grandfather is in the bedroom.'],
+
+                ['15','151.PNG','151.mp3','Review','s','Review']
                 ];
 
       // 선택된 아이템을 담을 변수
@@ -1579,7 +1670,7 @@
           }
 
           if(bookselected == 'Theme English 5'){
-            for(let i=0;i<23;i++){
+            for(let i=0;i<63;i++){
               selecteditem.push(te5[i]);
               listlength++;
             }
@@ -1721,7 +1812,7 @@
               }
 
               if(bookselected=='Theme English 5'){
-                for(let j=0;j<23;j++){
+                for(let j=0;j<63;j++){
                   if(te5[j][0]==units[i].value){
                     selecteditem.push(te5[j]);
                     listlength ++;
